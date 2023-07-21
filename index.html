@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="content">
+        <div class="close" onclick="add_item()"></div>
+        <div id="to-do">
+            <div class="nav">
+                <h2>To Do List</h2>
+            </div>
+            <div class="date-disp">
+                <p class="day">Wednesday</p>
+                <p class="date">July 19, 2023</p>
+            </div>
+            <hr style="margin:0;">
+            <div class="tasks">
+                <input class="inp_fld" type="text" />
+                <div class="items">
+                    
+                </div>
+            </div>
+            <div class="add-btn">
+                <a onclick="show_inp()">+</a>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

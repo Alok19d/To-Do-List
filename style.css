@@ -1,0 +1,116 @@
+*{
+    font-family: 'Open Sans', sans-serif;
+}
+body{
+    margin:0;
+    padding:0;
+}
+#content{
+    background: rgb(34, 171, 175);
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content: center;
+    position:relative;
+}
+.close{
+    position:absolute;
+    left:0;
+    bottom:0;
+    right:0;
+    top:0;
+    z-index:1;
+}
+#to-do{
+    background: white;
+    width:50%;
+    min-width:400px;
+    height:100vh;
+    position:relative;
+    z-index:2;
+}
+.nav{
+    color: white;
+    height: 60px;
+    background: rgb(223, 64, 223);
+    margin-top:20px;
+    text-align: center;
+}
+.nav h2{
+    margin:0;
+    padding: 10px 0;
+}
+.date-disp{
+    text-align: center;
+}
+.date-disp .day{
+    font-size:45px;
+    margin:0;
+    padding-top: 40px;
+}
+.date-disp .date{
+    font-size:16px;
+    margin:0;
+    padding-bottom: 25px;
+}
+.tasks{
+    margin:0 10px;
+    height:476px;
+    overflow-y:auto;
+}
+.tasks::-webkit-scrollbar{
+    display: none;
+}
+.tasks p{
+    font-size: 23px;
+    padding: 10px 20px 10px 30px;
+    box-shadow: 8px 10px rgb(13, 187, 7);
+    border: 2px solid rgb(8, 167, 43);
+    text-align: center;
+    user-select: none;
+    word-break:break-all;
+}
+.tasks p:hover{
+    background: azure;
+}
+.inp_fld{
+    font-size: 23px;
+    padding: 10px 20px 10px 30px;
+    box-shadow: 8px 10px rgb(13, 187, 7);
+    border: 2px solid rgb(8, 167, 43);
+    text-align: center;
+    box-sizing: border-box;
+    width: 100%;
+    display:none;
+    outline:none;
+}
+
+.add-btn{
+    background: #a50ea5;
+    font-size: 50px;
+    text-align: center;
+    height: 70px;
+    width: 70px;
+    border-radius: 100%;
+    position:absolute;
+    bottom: 10px;
+    right:10px;
+}
+.add-btn a{
+    text-decoration: none;
+    color:white;
+}
+.cmp_tsk{
+    text-decoration: line-through;
+    color:grey;
+}
+.empty_list{
+    color:grey;
+    padding-top:40px;
+    display: inline-block;
+}
+@media screen and (max-width:400px){
+    #to-do{
+        width:100%;
+    }
+}
