@@ -55,7 +55,7 @@ body{
 }
 .tasks{
     margin:0 10px;
-    height:476px;
+    height: calc(100vh - 228px);
     overflow-y:auto;
 }
 .tasks::-webkit-scrollbar{
