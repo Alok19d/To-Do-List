@@ -15,7 +15,7 @@ let formatted_date= curr_month +" "+ curr_date+", "+curr_year;
 let set_date = document.querySelector('.date').innerHTML = formatted_date;
 
 //Map Element
-var item=[{val:'Item 1',cmp:0}]; //{val,cmp}
+var item=[]; //{val,cmp}
 function ref_items(){
     if(item.length!=0){
     let tsk=``;
