@@ -15,26 +15,37 @@ let formatted_date= curr_month +" "+ curr_date+", "+curr_year;
 let set_date = document.querySelector('.date').innerHTML = formatted_date;
 
 //Map Element
-var item=[]; //{val,cmp}
-if(item.length!=0){
-    for(let i=item.length-1;i>=0;i--){
-        let iHtml = `<p class="t${i}" onclick="tsksch('t${i}')">`+item[i]+`</p>`
-        document.getElementsByClassName("items")[0].innerHTML += iHtml;
+var item=[{val:'Item 1',cmp:0}]; //{val,cmp}
+function ref_items(){
+    if(item.length!=0){
+    let tsk=``;
+            for(let i=item.length-1;i>=0;i--){
+                if(item[i].cmp==0){
+                    let iHtml = `<div class="tsk"><p class="t${i}" onclick="tsksch('t${i}')">`+item[i].val+`</p><i class="fa-solid fa-trash" onclick="del_item(${i})"></i></div>`;
+                    tsk += iHtml;
+                }
+            }
+            for(let i=item.length-1;i>=0;i--){
+                if(item[i].cmp==1){
+                    let iHtml = `<div class="tsk"><p class="t${i} cmp_tsk" onclick="tsksch('t${i}')">`+item[i].val+`</p><i class="fa-solid fa-trash" onclick="del_item(${i})"></i></div>`;
+                    tsk += iHtml;
+                }
+            }
+            document.getElementsByClassName("items")[0].innerHTML = tsk;
+    }
+    else{
+        document.getElementsByClassName("items")[0].innerHTML=`<center><span class="empty_list">No items Found</span></center>`;
     }
 }
-else{
-    document.getElementsByClassName("items")[0].innerHTML=`<center><span class="empty_list">No items Found</span></center>`;
-}
-
+ref_items();
 //Function Show Input
 function show_inp(){
-    let elem = document.getElementsByClassName('inp_fld')[0];
-    elem.style.display="block";
+    let elem = document.getElementsByClassName('new_task')[0];
+    elem.style.display="inline-block";
 }
 
 // Function task switch(del-notdel)
 function tsksch(t){
-    // let elem = document.getElementsByClassName(t)[0];
     let pos = Number.parseInt(t[1]);
     if(item[pos].cmp==0){
         item[pos].cmp=1;
@@ -42,21 +53,7 @@ function tsksch(t){
     else{
         item[pos].cmp=0;
     }
-    console.log(item[pos]);
-    let tsk=``;
-    for(let i=item.length-1;i>=0;i--){
-        if(item[i].cmp==0){
-            let iHtml = `<p class="t${i}" onclick="tsksch('t${i}')">`+item[i].val+`</p>`;
-            tsk += iHtml;
-        }
-    }
-    for(let i=item.length-1;i>=0;i--){
-        if(item[i].cmp==1){
-            let iHtml = `<p class="t${i} cmp_tsk" onclick="tsksch('t${i}')">`+item[i].val+`</p>`;
-            tsk += iHtml;
-        }
-    }
-    document.getElementsByClassName("items")[0].innerHTML = tsk;
+    ref_items();
 }
 
 // Function Add input on clicking enter
@@ -77,23 +74,14 @@ function add_item(){
     if(remspainp.length != 0){
         item.push({val:inp,cmp:0});
         document.getElementsByClassName("inp_fld")[0].value="";
-        let tsk=``;
-        for(let i=item.length-1;i>=0;i--){
-            if(item[i].cmp==0){
-                let iHtml = `<p class="t${i}" onclick="tsksch('t${i}')">`+item[i].val+`</p>`;
-                tsk += iHtml;
-            }
-        }
-        for(let i=item.length-1;i>=0;i--){
-            if(item[i].cmp==1){
-                let iHtml = `<p class="t${i} cmp_tsk" onclick="tsksch('t${i}')">`+item[i].val+`</p>`;
-                tsk += iHtml;
-            }
-        }
-        document.getElementsByClassName("items")[0].innerHTML = tsk;
-        let elem = document.getElementsByClassName('inp_fld')[0];
+        ref_items();
+        let elem = document.getElementsByClassName('new_task')[0];
         elem.style.display="none";
     }
 }
 
 // Function Delete Item
+function del_item(t){
+    let deleted = item.splice(t,1);
+    ref_items();
+}
