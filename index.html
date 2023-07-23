@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>To Do List</title>
     <link rel="stylesheet" href="style.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <div id="content">
@@ -21,11 +22,14 @@
                 <p class="day">Wednesday</p>
                 <p class="date">July 19, 2023</p>
             </div>
-            <hr style="margin:0;">
+            <!-- <hr style="margin:0;"> -->
             <div class="tasks">
-                <input class="inp_fld" type="text" />
+                <div class="new_task">
+                    <input class="inp_fld" type="text" />
+                    <button class="btn" onclick="add_item()">Add Item</button>
+                </div>
                 <div class="items">
-                    
+
                 </div>
             </div>
             <div class="add-btn">
@@ -33,6 +37,8 @@
             </div>
         </div>
     </div>
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/2a8614845b.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
 </html>
